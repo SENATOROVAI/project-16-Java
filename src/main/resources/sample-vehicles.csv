@@ -1,0 +1,3 @@
+key,id,name,coordinatesX,coordinatesY,creationDate,enginePower,type,fuelType
+1,1,StarterCar,12.5,100,2026-03-08,150.0,CAR,DIESEL
+,2,NoKeyBike,33.1,200,2026-03-08,80.0,MOTORCYCLE,ELECTRICITY

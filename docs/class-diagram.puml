@@ -1,0 +1,51 @@
+@startuml
+package ru.student.vehiclecli {
+  class Main
+  class ConsoleApp
+}
+
+package ru.student.vehiclecli.model {
+  class Vehicle {
+    - id: long
+    - name: String
+    - coordinates: Coordinates
+    - creationDate: LocalDate
+    - enginePower: Float
+    - type: VehicleType
+    - fuelType: FuelType
+  }
+  class Coordinates {
+    - x: Double
+    - y: long
+  }
+  enum VehicleType
+  enum FuelType
+  class VehicleIdGenerator
+}
+
+package ru.student.vehiclecli.collection {
+  class VehicleCollectionManager
+}
+
+package ru.student.vehiclecli.io {
+  class CsvVehicleReader
+  class CsvVehicleWriter
+  class CollectionFileResolver
+}
+
+Main --> ConsoleApp
+ConsoleApp --> VehicleCollectionManager
+ConsoleApp --> CsvVehicleReader
+ConsoleApp --> CsvVehicleWriter
+ConsoleApp --> CollectionFileResolver
+
+VehicleCollectionManager "1" o-- "*" Vehicle
+Vehicle --> Coordinates
+Vehicle --> VehicleType
+Vehicle --> FuelType
+Vehicle --> VehicleIdGenerator
+CsvVehicleReader --> Vehicle
+CsvVehicleWriter --> Vehicle
+@enduml
+
+
